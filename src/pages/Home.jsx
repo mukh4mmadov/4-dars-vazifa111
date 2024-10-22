@@ -26,6 +26,10 @@ function Home() {
     navigate(`/products/${id}`);
   }
 
+  function handleOur() {
+    navigate("/products");
+  }
+
   return (
     <div className="container mx-auto p-6">
       <div className="flex items-center justify-between bg-white p-8 rounded-xl shadow-xl mb-12">
@@ -37,7 +41,10 @@ function Home() {
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Tempore
             repellat explicabo enim soluta temporibus asperiores.
           </p>
-          <button className="mt-10 px-8 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all">
+          <button
+            onClick={handleOur}
+            className="mt-10 px-8 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all"
+          >
             OUR PRODUCTS
           </button>
         </div>

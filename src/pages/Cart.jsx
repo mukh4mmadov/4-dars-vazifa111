@@ -64,8 +64,12 @@ function Cart() {
                 className="mr-4"
               />
               <div>
-                <h3 className="text-xl font-semibold">{value.product.attributes.title}</h3>
-                <p className="text-gray-500">{value.product.attributes.brand}</p>
+                <h3 className="text-xl font-semibold">
+                  {value.product.attributes.title}
+                </h3>
+                <p className="text-gray-500">
+                  {value.product.attributes.brand}
+                </p>
                 <div className="flex items-center mt-2">
                   <strong className="mr-2">Color:</strong>
                   <span
@@ -90,7 +94,7 @@ function Cart() {
                 }}
                 className="mr-4 border border-gray-300 rounded-md p-1"
               >
-                {[...Array(7).keys()].map((num) => (
+                {[...Array(20).keys()].map((num) => (
                   <option key={num + 1} value={num + 1}>
                     {num + 1}
                   </option>
@@ -104,7 +108,9 @@ function Cart() {
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold">${value.product.attributes.price}</h3>
+            <h3 className="text-xl font-semibold">
+              ${value.product.attributes.price}
+            </h3>
           </div>
         ))}
 
