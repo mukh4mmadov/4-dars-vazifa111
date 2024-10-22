@@ -18,7 +18,7 @@ function Cart() {
   function handleChangeCount(count, id, color) {
     let copied = [...cart];
     copied = copied.map(function (value) {
-      if (value.id == id && value.color == color) {
+      if (value.id === id && value.color === color) {
         value.count = Number(count);
       }
 
@@ -61,7 +61,7 @@ function Cart() {
               <div className="amount">
                 <select
                   value={value.count}
-                  onChange={() => {
+                  onChange={(e) => {
                     handleChangeCount(e.target.value, value.id, value.color);
                   }}
                 >
