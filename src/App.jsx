@@ -46,9 +46,8 @@ function App() {
       location.pathname !== "/login" &&
       location.pathname !== "/about" &&
       location.pathname !== "/cart" &&
-      location.pathname !== "/details" &&
       location.pathname !== "/" &&
-      location.pathname !== "/products"
+      !location.pathname.includes("/products")
     ) {
       navigate("/login");
     }
