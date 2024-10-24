@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../App";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function MainLayout({ children }) {
   const { cart } = useContext(CartContext);
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const [lang, setLang] = useState("en");
 
   useEffect(() => {
     let sum = 0;
@@ -28,21 +31,29 @@ function MainLayout({ children }) {
     navigate("/");
   }
 
+  function handleChange(e) {
+    setLang(e.target.value);
+  }
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang]);
+
   return (
     <div>
       <header className="bg-gray-200 py-2">
-        <div className="flex justify-between max-w-6xl mx-auto px-4">
-          <div className="flex space-x-4">
+        <div className="flex justify-between max-w-6xl mx-auto px-4 items-center">
+          <div className="flex space-x-4 items-center">
             {token ? (
               <>
                 <Link className="btn btn-ghost text-gray-700 hover:bg-gray-300">
-                  Profile
+                  {t("Profile")}
                 </Link>
                 <Link
                   onClick={handleLogout}
                   className="btn btn-ghost text-gray-700 hover:bg-gray-300"
                 >
-                  Log Out
+                  {t("LogOut")}
                 </Link>
               </>
             ) : (
@@ -51,25 +62,36 @@ function MainLayout({ children }) {
                   to="/login"
                   className="btn btn-ghost text-gray-700 hover:bg-gray-300"
                 >
-                  Sign In / Guest
+                  {t("SignIn")}
                 </Link>
                 <Link
                   to="/register"
                   className="btn btn-ghost text-gray-700 hover:bg-gray-300"
                 >
-                  Create Account
+                  {t("Create")}
                 </Link>
               </>
             )}
+          </div>
+          <div className="ml-4">
+            <select
+              onChange={handleChange}
+              value={lang}
+              className="p-2 rounded-md border-gray-300 bg-white text-gray-700"
+            >
+              <option value="en">English</option>
+              <option value="uz">Uzbek</option>
+              <option value="ru">Russian</option>
+            </select>
           </div>
         </div>
       </header>
 
       <header className="bg-blue-100">
-        <div className="navbar bg-blue-100 flex justify-between">
+        <div className="navbar bg-blue-100 flex justify-between items-center">
           <div className="flex-1">
             <Link to="/" className="btn btn-ghost text-xl">
-              MyWebsite
+              {t("MyWebsite")}
             </Link>
           </div>
           <ul className="flex space-x-6 mx-auto">
@@ -84,7 +106,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Home
+                    {t("Home")}
                   </Link>
                 </li>
                 <li>
@@ -96,7 +118,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    About
+                    {t("About")}
                   </Link>
                 </li>
                 <li>
@@ -108,7 +130,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Products
+                    {t("Products")}
                   </Link>
                 </li>
                 <li>
@@ -120,7 +142,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Cart
+                    {t("Cart")}
                   </Link>
                 </li>
                 <li>
@@ -132,7 +154,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Checkout
+                    {t("Checkout")}
                   </Link>
                 </li>
                 <li>
@@ -144,7 +166,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Orders
+                    {t("Orders")}
                   </Link>
                 </li>
               </>
@@ -159,7 +181,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Home
+                    {t("Home")}
                   </Link>
                 </li>
                 <li>
@@ -171,7 +193,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    About
+                    {t("About")}
                   </Link>
                 </li>
                 <li>
@@ -183,7 +205,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Products
+                    {t("Products")}
                   </Link>
                 </li>
                 <li>
@@ -195,7 +217,7 @@ function MainLayout({ children }) {
                         : "text-gray-700 hover:text-black hover:bg-gray-200"
                     }`}
                   >
-                    Cart
+                    {t("Cart")}
                   </Link>
                 </li>
               </>
@@ -231,14 +253,16 @@ function MainLayout({ children }) {
                 className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
               >
                 <div className="card-body">
-                  <span className="text-lg font-bold">{count} Items</span>
+                  <span className="text-lg font-bold">
+                    {count} {t("Items")}
+                  </span>
                   <div className="card-actions">
                     {window.location.pathname !== "/cart" && (
                       <button
                         onClick={handleCart}
                         className="btn btn-primary btn-block"
                       >
-                        View cart
+                        {t("View")}
                       </button>
                     )}
                   </div>

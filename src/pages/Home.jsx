@@ -3,9 +3,11 @@ import { http } from "../axios";
 import { useNavigate } from "react-router-dom";
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
+import { useTranslation } from "react-i18next";
 
 function Home() {
   const [products, setProducts] = useState([]);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     http
@@ -35,7 +37,7 @@ function Home() {
       <div className="flex items-center justify-between bg-white p-8 rounded-xl shadow-xl mb-12">
         <div className="w-1/2">
           <h1 className="text-5xl font-extrabold text-gray-800 mb-4 leading-snug">
-            We are changing the way people shop
+            {t("We")}
           </h1>
           <p className="mt-10 text-gray-600 mb-6 text-lg">
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Tempore
@@ -45,7 +47,7 @@ function Home() {
             onClick={handleOur}
             className="mt-10 px-8 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all"
           >
-            OUR PRODUCTS
+            {t("Our")}
           </button>
         </div>
         <div className="w-1/2 flex gap-6">
@@ -63,7 +65,7 @@ function Home() {
       </div>
 
       <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-        Featured Products
+        {t("Featured")}
       </h2>
       <hr />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

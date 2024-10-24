@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
