@@ -27,7 +27,14 @@
       "Companies": "All Companies",
       "Free": "Free Shipping",
       "Search": "Search",
-      "Reset": "Reset"
+      "Reset": "Reset",
+      "Searchs": "Search Product",
+      "Shopping": "Shopping Cart",
+      "Color": "Color",
+      "Amount": "Amount",
+      "Add": "ADD TO BAG",
+      "remove": "remove",
+      "Your": "Your cart is empty"
     }
   },
   "ru": {
@@ -58,7 +65,14 @@
       "Companies": "Все компании",
       "Free": "Бесплатная доставка",
       "Search": "Поиск",
-      "Reset": "Перезагрузить"
+      "Reset": "Перезагрузить",
+      "Searchs": "Поиск продукта",
+      "Shopping": "Корзина",
+      "Color": "Цвет",
+      "Amount": "Количество",
+      "Add": "ДОБАВИТЬ В КОРЗИНУ",
+      "remove": "удалять",
+      "Your": "Ваша корзина пуста"
     }
   },
   "uz": {
@@ -89,7 +103,14 @@
       "Companies": "Barcha kompaniyalar",
       "Free": "Yetkazib berish bepul",
       "Search": "Qidiruv",
-      "Reset": "Qayta tiklash"
+      "Reset": "Qayta tiklash",
+      "Searchs": "Mahsulotni qidirish",
+      "Shopping": "Xarid savati",
+      "Color": "Rang",
+      "Amount": "Miqdori",
+      "Add": "SAVATGA QO'SHISH",
+      "remove": "olib tashlash",
+      "Your": "Savatingiz boʻsh"
     }
   }
 }

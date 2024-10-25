@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { http } from "../axios";
 import { CartContext } from "../App";
+import { useTranslation } from "react-i18next";
 
 function Details() {
   const [product, setProduct] = useState({});
@@ -10,6 +11,7 @@ function Details() {
   const { id } = params;
   const [count, setCount] = useState(1);
   const { cart, setCart } = useContext(CartContext);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     http
@@ -81,7 +83,9 @@ function Details() {
               </p>
 
               <div className="mb-6">
-                <strong className="mt-16 text-lg text-gray-800">Colors:</strong>
+                <strong className="mt-16 text-lg text-gray-800">
+                  {t("Color")}:
+                </strong>
                 <div className="flex space-x-3 mt-2">
                   {product.attributes.colors.length > 0 &&
                     product.attributes.colors.map((colorProduct, index) => {
@@ -106,7 +110,9 @@ function Details() {
               </div>
 
               <div className="mb-6">
-                <label className="block text-lg text-gray-800">Amount</label>
+                <label className="block text-lg text-gray-800">
+                  {t("Amount")}
+                </label>
                 <select
                   value={count}
                   onChange={(e) => {
@@ -126,7 +132,7 @@ function Details() {
                 onClick={handleSetCard}
                 className="w-60 bg-purple-600 text-white text-base py-2 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
               >
-                ADD TO BAG
+                {t("Add")}
               </button>
             </div>
           </div>

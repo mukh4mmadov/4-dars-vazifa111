@@ -51,7 +51,7 @@ function Cart() {
     <div className="container mx-auto p-4">
       {cart.length > 0 ? (
         <>
-          <h2 className="text-3xl font-bold mb-6">Shopping Cart</h2>
+          <h2 className="text-3xl font-bold mb-6">{t("Shopping")}</h2>
           {cart.map((value, index) => (
             <div
               key={index}
@@ -73,7 +73,7 @@ function Cart() {
                     {value.product.attributes.brand}
                   </p>
                   <div className="flex items-center mt-2">
-                    <strong className="mr-2">Color:</strong>
+                    <strong className="mr-2">{t("Color")}:</strong>
                     <span
                       style={{
                         backgroundColor: value.color,
@@ -106,7 +106,7 @@ function Cart() {
                   onClick={() => handleRemove(value.id, value.color)}
                   className="text-blue-500 cursor-pointer"
                 >
-                  remove
+                  {t("remove")}
                 </span>
               </div>
 
@@ -127,7 +127,7 @@ function Cart() {
         </>
       ) : (
         <p className="text-center text-2xl font-bold text-gray-700">
-          Your cart is empty
+          {t("Your")}
         </p>
       )}
     </div>

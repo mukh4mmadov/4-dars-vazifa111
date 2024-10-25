@@ -22,7 +22,9 @@ function Products() {
 
   function handleSearch() {
     const shippingStatus = freeShipping ? "on" : "off";
-    const url = `https://strapi-store-server.onrender.com/api/products?search=${search}&category=${category}&company=${company}&order=${order}&price=100000&shipping=${shippingStatus}`;
+    const url = `https://strapi-store-server.onrender.com/api/products?search=${search}&category=${category}&company=${company}&order=${order}&price=${
+      price * 100
+    }&shipping=${shippingStatus}`;
 
     fetch(url)
       .then(function (response) {
@@ -62,9 +64,10 @@ function Products() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search Product"
+            placeholder={t("Searchs")}
             className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
