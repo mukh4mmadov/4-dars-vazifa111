@@ -34,7 +34,8 @@
       "Amount": "Amount",
       "Add": "ADD TO BAG",
       "remove": "remove",
-      "Your": "Your cart is empty"
+      "Your": "Your cart is empty",
+      "Select": "Select Price"
     }
   },
   "ru": {
@@ -72,7 +73,8 @@
       "Amount": "Количество",
       "Add": "ДОБАВИТЬ В КОРЗИНУ",
       "remove": "удалять",
-      "Your": "Ваша корзина пуста"
+      "Your": "Ваша корзина пуста",
+      "Select": "Выберите цену"
     }
   },
   "uz": {
@@ -110,7 +112,8 @@
       "Amount": "Miqdori",
       "Add": "SAVATGA QO'SHISH",
       "remove": "olib tashlash",
-      "Your": "Savatingiz boʻsh"
+      "Your": "Savatingiz boʻsh",
+      "Select": "Narxni tanlang"
     }
   }
 }

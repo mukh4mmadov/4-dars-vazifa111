@@ -104,7 +104,7 @@ function Products() {
           </select>
           <div className="flex items-center">
             <label htmlFor="priceRange" className="mr-3">
-              Select Price: ${price}
+              {t("Select")}: ${price}
             </label>
             <input
               id="priceRange"
